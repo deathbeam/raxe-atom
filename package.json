@@ -1,0 +1,15 @@
+{
+  "name": "raxe",
+  "version": "0.0.0",
+  "description": "Raxe language support in Atom",
+  "repository": "https://github.com/nondev/raxe-atom",
+  "license": "MIT",
+  "keywords": [
+    "raxe",
+    "haxe",
+    "ruby"
+  ],
+  "engines": {
+    "atom": "*"
+  }
+}

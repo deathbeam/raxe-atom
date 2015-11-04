@@ -1,0 +1,5 @@
+'.source.raxe':
+  'editor':
+    'commentStart': '# '
+    'increaseIndentPattern': '\\b(else|elsif|def|class|trait|interface|enum|abstract|then|do|repeat)\\b((?!end).)*$|\\{\\s*$'
+    'decreaseIndentPattern': '^\\s*(elsif|else|end|,?|\\}\\)?).*$'

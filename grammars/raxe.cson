@@ -1,11 +1,13 @@
-'comment': 'Raxe Syntax'
+'name': 'Raxe'
 'scopeName': 'source.raxe'
+
 'fileTypes': [
   'rx'
   'Raxefile'
 ]
+
 'firstLineMatch': '\\A#!.*?\\braxe\\b'
-'name': 'Raxe'
+
 'patterns': [
   {
     'captures':

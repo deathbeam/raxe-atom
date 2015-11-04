@@ -1,6 +1,6 @@
 {
   "name": "raxe",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Raxe language support in Atom",
   "repository": "https://github.com/nondev/raxe-atom",
   "license": "MIT",

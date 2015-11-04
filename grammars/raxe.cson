@@ -114,7 +114,7 @@
     'name': 'constant.numeric.raxe'
   }
   {
-    'match': '(?<![^.]\\.|:)\\b(false|null|true)\\b|(?<![.])\\.{3}(?!\\.)'
+    'match': '(?<![^.]\\.|:)\\b(false|null|true|void)\\b|(?<![.])\\.{3}(?!\\.)'
     'name': 'constant.language.raxe'
   }
   {

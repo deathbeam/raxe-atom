@@ -10,112 +10,40 @@
 
 'patterns': [
   {
-    'captures':
-      '1':
-        'name': 'keyword.control.raxe'
-      '2':
-        'name': 'entity.name.type.class.raxe'
-    'match': '^\\s*(class|trait|enum|abstract|interface)\\s+([.a-zA-Z0-9_@]+)'
-    'name': 'meta.class.raxe'
+    'include': '#comments'
+  }
+  {
+    'include': '#strings'
+  }
+  {
+    'include': '#constants'
+  }
+  {
+    'include': '#classes'
+  }
+  {
+    'include': '#functions'
+  }
+  {
+    'include': '#variables'
+  }
+  {
+    'include': '#regex'
   }
   {
     'captures':
       '1':
-        'name': 'keyword.control.raxe'
-      '2':
-        'name': 'entity.name.function.raxe'
-      '3':
-        'name': 'punctuation.definition.parameters.begin.raxe'
-      '4':
-        'name': 'variable.parameter.function.raxe'
-      '5':
-        'name': 'punctuation.definition.parameters.end.raxe'
-    'match': '\\b(def)(?:\\s+([a-zA-Z_@]\\w*)\\s*)?(\\()([^)]*)(\\))'
-    'name': 'meta.function.raxe'
+        'name': 'punctuation.definition.preprocessor.haxe'
+    'match': '^[ \\t]*(#(?:if|else|elsif|end)).*'
+    'name': 'meta.preprocessor.raxe'
   }
   {
-    'captures':
-      '1':
-        'name': 'keyword.control.raxe'
-      '2':
-        'name': 'keyword.operator.assignment.raxe'
-    'match': '\\b(def)(?:\\s+(?:[a-zA-Z0-9_@]\\w*)\\s*)(?:[^\\(\\)](=|:))'
-    'name': 'variable.other.raxe'
+    'match': '#(if|else|elsif|end)\\b'
+    'name': 'keyword.preprocessor.macro.raxe'
   }
   {
-    'begin': '^[\\s]*""'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.definition.string.begin.raxe'
-    'end': '^[\\s]*""'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.definition.string.end.raxe'
-    'name': 'string.quoted.other.multiline.raxe'
-    'patterns': [
-      {
-        'include': '#interpolated_raxe'
-      }
-      {
-        'include': '#escaped_char'
-      }
-    ]
-  }
-  {
-    'begin': '"'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.definition.string.begin.raxe'
-    'end': '"'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.definition.string.end.raxe'
-    'name': 'string.quoted.double.interpolated.raxe'
-    'patterns': [
-      {
-        'include': '#interpolated_raxe'
-      }
-      {
-        'include': '#escaped_char'
-      }
-    ]
-  }
-  {
-    'begin': '^[\\s]*##'
-    'captures':
-      '0':
-        'name': 'punctuation.definition.comment.raxe'
-    'end': '^[\\s]*##'
-    'name': 'comment.block.raxe'
-  }
-  {
-    'begin': '(^[ \\t]+)?(?=#)'
-    'beginCaptures':
-      '1':
-        'name': 'punctuation.whitespace.comment.leading.raxe'
-    'end': '(?!\\G)'
-    'patterns': [
-      {
-        'begin': '#'
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.comment.raxe'
-        'end': '\\n'
-        'name': 'comment.line.number-sign.raxe'
-      }
-    ]
-  }
-  {
-    'match': '\\b(break|continue|do|else|for|if|elsif|return|while|end|private|public|in|inline|override|import|macro|trace|new|switch|when|try|catch|throw)\\b'
+    'match': '\\b(break|continue|do|else|for|if|elsif|return|while|end|private|public|in|inline|override|import|using|macro|trace|new|switch|when|try|catch|throw)\\b'
     'name': 'keyword.control.raxe'
-  }
-  {
-    'match': '(?<![\\d.])\\s0x[a-fA-F\\d]+|\\b\\d+(\\.\\d+)?([eE]-?\\d+)?|\\.\\d+([eE]-?\\d+)?'
-    'name': 'constant.numeric.raxe'
-  }
-  {
-    'match': '(?<![^.]\\.|:)\\b(false|null|true|void)\\b|(?<![.])\\.{3}(?!\\.)'
-    'name': 'constant.language.raxe'
   }
   {
     'match': '\\b[A-Z]\\w*'
@@ -140,10 +68,131 @@
 ]
 
 'repository':
-  'escaped_char':
+  'comments':
+    'patterns': [
+      {
+        'begin': '^[\\s]*###'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.raxe'
+        'end': '^[\\s]*###'
+        'name': 'comment.block.raxe'
+      }
+      {
+        'begin': '(^[ \\t]+)?(?=#)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.whitespace.comment.leading.raxe'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '#'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.raxe'
+            'end': '\\n'
+            'name': 'comment.line.number-sign.raxe'
+          }
+        ]
+      }
+    ]
+  'strings':
+    'patterns': [
+      {
+        'begin': '^[\\s]*"""'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.raxe'
+        'end': '^[\\s]*"""'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.raxe'
+        'name': 'string.quoted.other.multiline.raxe'
+        'patterns': [
+          {
+            'include': '#interpolated'
+          }
+          {
+            'include': '#escaped'
+          }
+        ]
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.raxe'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.raxe'
+        'name': 'string.quoted.double.interpolated.raxe'
+        'patterns': [
+          {
+            'include': '#interpolated'
+          }
+          {
+            'include': '#escaped'
+          }
+        ]
+      }
+    ]
+  'constants':
+    'patterns': [
+      {
+        'match': '\\b(true|false|null|void)\\b'
+        'name': 'constant.language.raxe'
+      }
+      {
+        'match': '\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b'
+        'name': 'constant.numeric.raxe'
+      }
+    ]
+  'classes':
+    'captures':
+      '1':
+        'name': 'keyword.control.raxe'
+      '2':
+        'name': 'entity.name.type.class.raxe'
+    'match': '^\\s*(class|trait|enum|abstract|interface)\\s+([.a-zA-Z0-9_@]+)'
+    'name': 'meta.class.raxe'
+  'functions':
+    'captures':
+      '1':
+        'name': 'keyword.control.raxe'
+      '2':
+        'name': 'entity.name.function.raxe'
+      '3':
+        'name': 'punctuation.definition.parameters.begin.raxe'
+      '4':
+        'name': 'variable.parameter.function.raxe'
+      '5':
+        'name': 'punctuation.definition.parameters.end.raxe'
+    'match': '\\b(def)(?:\\s+([a-zA-Z_@]\\w*)\\s*)?(\\()([^)]*)(\\))'
+    'name': 'meta.function.raxe'
+  'variables':
+    'captures':
+      '1':
+        'name': 'keyword.control.raxe'
+      '2':
+        'name': 'keyword.operator.assignment.raxe'
+    'match': '\\b(def)(?:\\s+(?:[a-zA-Z0-9_@]\\w*)\\s*)(?:[^\\(\\)](=|:))'
+    'name': 'variable.other.raxe'
+  'regex':
+    'begin': '~/'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.section.regexp.begin.raxe'
+    'comment': 'regular expression literal with interpolation and {} delimitor'
+    'end': '/[eimnosux]*'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.regexp.end.raxe'
+    'name': 'string.regexp.interpolated.raxe'
+  'escaped':
     'match': '\\\\.'
     'name': 'constant.character.escape.raxe'
-  'interpolated_raxe':
+  'interpolated':
     'patterns': [
       {
         'begin': '(#\\{)'

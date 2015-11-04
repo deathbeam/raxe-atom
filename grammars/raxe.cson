@@ -106,7 +106,7 @@
     ]
   }
   {
-    'match': '\\b(break|do|else|for|if|elsif|return|while|end|private|in|inline|override|import|macro|trace|new|switch|when|try|catch|throw)\\b'
+    'match': '\\b(break|continue|do|else|for|if|elsif|return|while|end|private|public|in|inline|override|import|macro|trace|new|switch|when|try|catch|throw)\\b'
     'name': 'keyword.control.raxe'
   }
   {

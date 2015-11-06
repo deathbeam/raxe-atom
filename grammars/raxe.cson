@@ -21,6 +21,9 @@
     'include': '#strings'
   }
   {
+    'include': '#embedded'
+  }
+  {
     'include': '#constants'
   }
   {
@@ -184,6 +187,22 @@
   'escaped':
     'match': '\\\\.'
     'name': 'constant.character.escape.raxe'
+
+  'embedded':
+    'begin': '`'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.raxe'
+    'end': '`'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.raxe'
+    'name': 'string.quoted.script.raxe'
+    'patterns': [
+      {
+        'include': '#escaped'
+      }
+    ]
 
   'interpolated':
     'patterns': [

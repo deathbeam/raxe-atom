@@ -2,4 +2,4 @@
   'editor':
     'commentStart': '# '
     'increaseIndentPattern': '(^\\s*(if|while|for|else|elsif|try|catch|finally|switch|when|else|class|interface|trait|enum|abstract)\\b.*\\s*$)|(^\\s*(def\\s*[a-zA-Z_@]?\\w*\\s*\\().*\\s*$)|(^.*\\b(do)\\b\\s*$)'
-    'decreaseIndentPattern': '^\\s*((end|else|elsif|catch|finally|when)\\b)'
+    'decreaseIndentPattern': '^\\s*((end|else|elsif|catch|when)\\b)'

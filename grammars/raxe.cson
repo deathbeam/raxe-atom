@@ -169,7 +169,7 @@
         'name': 'keyword.other.raxe'
       '2':
         'name': 'entity.name.function.raxe'
-    'match': '\\b(def)\\s+([@_A-Za-z]\\w*)[@\\[\\w\\], ]*\\s*\\('
+    'match': '\\b(def)\\s+([@_a-z]\\w*)[\\[\\w\\], ]*\\s*\\('
     'name': 'meta.function.raxe'
 
   'variables':
@@ -180,22 +180,6 @@
         'name': 'keyword.operator.assignment.raxe'
     'match': '\\b(def)(?:\\s+(?:[a-zA-Z0-9_@]\\w*)\\s*)(?:[^\\(\\)](=|:))'
     'name': 'variable.other.raxe'
-
-  'regex':
-    'begin': '~/'
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.section.regexp.begin.raxe'
-    'end': '/[eimnosux]*'
-    'endCaptures':
-      '0':
-        'name': 'punctuation.section.regexp.end.raxe'
-    'name': 'string.regexp.interpolated.raxe'
-    'patterns': [
-      {
-        'include': '#heregexp'
-      }
-    ]
 
   'escaped':
     'match': '\\\\.'
@@ -338,8 +322,24 @@
         'name': 'support.class.raxe'
       }
       {
-        'match': '\\b([a-z_@]\\w*)\\b(?=\\s*(?:[({"\']|\\[\\[))'
+        'match': '\\b([a-z_@]\\w*)\\b(?=\\s*(?:\\())'
         'name': 'support.function.raxe'
+      }
+    ]
+
+  'regex':
+    'begin': '~/'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.section.regexp.begin.raxe'
+    'end': '/[eimnosux]*'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.regexp.end.raxe'
+    'name': 'string.regexp.interpolated.raxe'
+    'patterns': [
+      {
+        'include': '#heregexp'
       }
     ]
 

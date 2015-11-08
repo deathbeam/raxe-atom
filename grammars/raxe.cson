@@ -201,7 +201,7 @@
     'name': 'string.quoted.script.raxe'
     'patterns': [
       {
-        'include': '#escaped'
+        'include': 'source.haxe'
       }
     ]
 

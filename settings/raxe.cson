@@ -1,6 +1,6 @@
 '.source.raxe':
   'editor':
     'commentStart': '# '
-    'commentEnd': ''
+    'commentEnd': '\n'
     'increaseIndentPattern': '(^.*(\\(|{|\\[if|while|for|else|elsif|try|catch|finally|switch|when|else|class|interface|trait|enum|abstract)\\b.*\\s*$)|(^.*(def\\s*[a-zA-Z_@]?\\w*\\s*\\().*\\s*$)|(^.*\\b(do)\\b\\s*$)'
     'decreaseIndentPattern': '^.*(\\)|}|\\]|end|else|elsif|catch|when)\\b'

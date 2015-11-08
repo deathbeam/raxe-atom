@@ -244,13 +244,9 @@
         'name': 'keyword.control.catch-exception.raxe'
       }
       {
-        'match': '\\w+\\s*\\?\\s*\\w+\\s*:'
-        'name': 'keyword.control.ternary-if.raxe'
-      }
-      {
         'captures':
           '1':
-            'name': 'keyword.control.raxe.flow-control.2'
+            'name': 'keyword.control.flow-control.raxe'
         'match': '\\b(if|return|while|for|elsif)\\b\\s*\\('
       }
       {
@@ -302,12 +298,20 @@
   'operators':
     'patterns': [
       {
-        'match': '\\b(in|as)\\b'
+        'match': '\\b(in|as|\\[|\\])\\b'
         'name': 'keyword.control.other.raxe'
       }
       {
         'match': '(\\.\\.\\.)'
         'name': 'keyword.control.directive.raxe'
+      }
+      {
+        'match': '(\\?|:)'
+        'name': 'keyword.control.ternary-if.raxe'
+      }
+      {
+        'match': '(\\[|\\])'
+        'name': 'keyword.control.generic.raxe'
       }
       {
         'match': '((\\b(isnt|is)\\b)|(==|!=|<=|>=|<>|<|>))'

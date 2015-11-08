@@ -5,6 +5,7 @@
 'fileTypes': [
   'rx'
   'rxs'
+  'rxon'
   'Raxefile'
 ]
 
@@ -301,7 +302,7 @@
   'operators':
     'patterns': [
       {
-        'match': '\\b(in)\\b'
+        'match': '\\b(in|as)\\b'
         'name': 'keyword.control.other.raxe'
       }
       {
